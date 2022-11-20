@@ -1,0 +1,59 @@
+POST http://localhost:3001/api/persons 
+Content-Type: application/json
+
+{
+    "name": "Austin Feltan",
+    "number": "33450543"
+}
+
+### No number
+POST http://localhost:3001/api/persons 
+Content-Type: application/json
+
+{
+    "name": "Missing"
+}
+
+### No name
+POST http://localhost:3001/api/persons 
+Content-Type: application/json
+
+{
+    "number": "Missing"
+}
+
+###
+POST http://localhost:3001/api/persons 
+Content-Type: application/json
+
+{
+    "name": "Alternative",
+    "number": "2000"
+}
+
+###
+POST http://localhost:3001/api/persons 
+Content-Type: application/json
+
+{
+    "name": "A",
+    "number": "1"
+}
+
+###
+{
+	"name": "Arto Hellas",
+	"number": "040-123456"
+}
+{
+    "name": "Ada Lovelace",
+    "number": "39-44-5323523"
+}
+{
+    "name": "Dan Abramov",
+    "number": "12-43-234345"
+}
+{
+  "name": "Mary Poppendieck",
+  "number": "39-23-6423122"
+}

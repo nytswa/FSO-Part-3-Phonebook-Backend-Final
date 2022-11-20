@@ -1,0 +1,7 @@
+GET http://localhost:3001/api/persons/636fafeb65cc751984030f92
+
+### 404
+GET http://localhost:3001/api/persons/636d1fbb54a9f6a6777ac2d9000
+
+### Bad Request 500 Internal Server Error?
+GET http://localhost:3001/api/persons/1234
