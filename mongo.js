@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Person = require('./models/Person.js')
-// const password = require('./password.js')
+const password = require('./password.js')
 
 // connection string
 // const connectionString = process.env.MONGODB_URI
