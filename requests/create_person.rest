@@ -22,7 +22,7 @@ Content-Type: application/json
     "number": "Missing"
 }
 
-###
+### Alternative
 POST http://localhost:3001/api/persons 
 Content-Type: application/json
 
@@ -31,7 +31,7 @@ Content-Type: application/json
     "number": "2000"
 }
 
-###
+### Repeated contact. Must be unique
 POST http://localhost:3001/api/persons 
 Content-Type: application/json
 
@@ -39,6 +39,16 @@ Content-Type: application/json
     "name": "A",
     "number": "1"
 }
+
+###
+POST http://localhost:3001/api/persons 
+Content-Type: application/json
+
+{
+    "name": "Arto Hellas",
+	"number": "040-123456"
+}
+
 
 ###
 {
