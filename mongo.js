@@ -3,8 +3,8 @@ const Person = require('./models/Person.js')
 // const password = require('./password.js')
 
 // connection string
-// const connectionString = `mongodb+srv://user_test:${password}@cluster0.ynlmk74.mongodb.net/?retryWrites=true&w=majority`
-const connectionString = process.env.MONGODB_URI
+// const connectionString = process.env.MONGODB_URI
+const connectionString = `mongodb+srv://user_test:${password}@cluster0.ynlmk74.mongodb.net/?retryWrites=true&w=majority`
 
 
 // connection mongodb - returns a promise
