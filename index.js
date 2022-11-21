@@ -31,7 +31,7 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms :c
 
 // Base URL
 app.get('/', (req, res) => {
-    res.send('<h1>Phonebook Backend Home Page</h1>')
+    res.send('<h1>Phonebook Backend Final Home Page</h1>')
 })
 
 // INFO page using MongoDB
