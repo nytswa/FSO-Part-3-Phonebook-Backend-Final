@@ -8,7 +8,7 @@ const connectionString = `mongodb+srv://user_test:${password}@cluster0.ynlmk74.m
 
 
 // connection mongodb - returns a promise
-mongoose.connect(connectionString)
+const mongooseConnection = mongoose.connect(connectionString)
     .then(() => {
         console.log('Database connected')
     })
@@ -17,4 +17,4 @@ mongoose.connect(connectionString)
     })
 
 
-module.exports = mongoose
+module.exports = mongooseConnection

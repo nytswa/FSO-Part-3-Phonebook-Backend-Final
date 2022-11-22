@@ -1,13 +1,16 @@
 require('dotenv').config()
 
 // Solo se requiere 1 sola ejecución para la conección al servidor.
-require('./mongo')
+// require('./mongo')
+
+const mongoDB = require('./mongo.js')
+mongoDB()
 
 const { response } = require('express')
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
-const Person = require('./models/Person')  // after database connection
+const Person = require('./models/Person')  // after database connectionç
 
 // Middlewares imports
 const notFound = require('./middlewares/notFound.js')
