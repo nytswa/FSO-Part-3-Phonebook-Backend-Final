@@ -1,16 +1,14 @@
 require('dotenv').config()
 
 // Solo se requiere 1 sola ejecución para la conección al servidor.
-// require('./mongo')
+require('./mongo')
 
-const mongoDB = require('./mongo.js')
-mongoDB()
 
 const { response } = require('express')
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
-const Person = require('./models/Person')  // after database connectionç
+const Person = require('./models/Person')  // after database connection
 
 // Middlewares imports
 const notFound = require('./middlewares/notFound.js')
@@ -57,6 +55,7 @@ app.get('/api/persons', (req, res) => {
 // Get 1 with id using MongoDB
 app.get('/api/persons/:id', (req, res, next) => {
     const { id } = req.params
+    console.log(typeof id)
     Person.findById(id).then(person => {
         if (person) {
             res.json(person)
@@ -106,7 +105,13 @@ app.post('/api/persons', (req, res, next) => {
         res.status(400).json({
             error: 'Name or Number is missing'
         })
+    } else if (newData.name.length < 3) {
+        res.status(400).json({
+            error: 'Name must be at least 3 characters long'
+        })
     }
+
+    //
 
     // Already exists (update this with mongo database find)
     // const doesNotExist = persons.findIndex(p => p.name === person.name)
@@ -122,14 +127,13 @@ app.post('/api/persons', (req, res, next) => {
             } else {
                 // Add
                 // Create ID: Not anymore since MongoDB creates its own IDs
-                console.log("I shouldn't have entered here")
+                
                 // Create new Person/Contact
                 const contact = new Person({
                     name: newData.name,
                     number: newData.number
                 })
             
-                console.log("I shouldn't be here neither")
                 // Save Person/Contact
                 contact.save().then(savedContact => {
                     res.status(201).json(savedContact)

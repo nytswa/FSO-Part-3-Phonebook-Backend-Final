@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 const Person = require('./models/Person.js')
-const password = require('./password.js')
+// const password = require('./password.js')
 
 // connection string
-// const connectionString = process.env.MONGODB_URI
-const connectionString = `mongodb+srv://user_test:${password}@cluster0.ynlmk74.mongodb.net/?retryWrites=true&w=majority`
+const connectionString = process.env.MONGODB_URI
+// const connectionString = `mongodb+srv://user_test:${password}@cluster0.ynlmk74.mongodb.net/?retryWrites=true&w=majority`
 
 
 // connection mongodb - returns a promise
-const mongooseConnection = mongoose.connect(connectionString)
+mongoose.connect(connectionString)
     .then(() => {
         console.log('Database connected')
     })
@@ -17,4 +17,4 @@ const mongooseConnection = mongoose.connect(connectionString)
     })
 
 
-module.exports = mongooseConnection
+module.exports = mongoose

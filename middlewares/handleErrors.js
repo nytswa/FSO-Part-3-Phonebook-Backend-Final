@@ -1,5 +1,7 @@
 module.exports = (error, request, response) => {
     // console path
+
+    console.log('---TESTING: error middleware')
     console.log(request.path)
     console.error(error)
     // console.log(error.name, error.message)
