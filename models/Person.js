@@ -3,8 +3,20 @@ const {Schema, model} = require('mongoose')
 
 // Schema / Structure
 const personSchema = new Schema({
-    name: String,
-    number: Number
+    name: {
+        type: String,
+        unique: true
+    },
+    number: {
+        type: String,
+        validate: {
+            validator: function(v) {
+                return /\d{2,3}-?\d{6,7}\d*/.test(v)
+            },
+            message: props => `${props.value} is not a valid phone number`
+        },
+        required: [true, 'User phone number required']
+    }
 })
 
 // Changing toJSON

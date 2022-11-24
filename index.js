@@ -4,11 +4,12 @@ require('dotenv').config()
 require('./mongo')
 
 
-const { response } = require('express')
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const Person = require('./models/Person')  // after database connection
+const phoneValidation = require('./generalFunctions')
+
 
 // Middlewares imports
 const notFound = require('./middlewares/notFound.js')
@@ -109,8 +110,15 @@ app.post('/api/persons', (req, res, next) => {
         res.status(400).json({
             error: 'Name must be at least 3 characters long'
         })
+    } else if (newData.number.length < 8) {
+        res.status(400).json({
+            error: 'Number must be at least 8 characters long'
+        })    
+    } else if (!(phoneValidation(newData.number.toString()))) {
+        res.status(400).json({
+            error: 'Phone must be a valid phone number'
+        })
     }
-
     //
 
     // Already exists (update this with mongo database find)

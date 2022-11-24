@@ -22,7 +22,7 @@ Content-Type: application/json
     "number": "Missing"
 }
 
-### Alternative
+### Number not long enough (8)
 POST http://localhost:3001/api/persons 
 Content-Type: application/json
 
@@ -31,7 +31,7 @@ Content-Type: application/json
     "number": "2000"
 }
 
-### Repeated contact. Must be unique
+### Name not long enough (3)
 POST http://localhost:3001/api/persons 
 Content-Type: application/json
 
