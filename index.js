@@ -19,6 +19,8 @@ const handleErrors = require('./middlewares/handleErrors.js')
 const app = express()
 
 
+// Serve Static
+app.use(express.static('build'))
 // Accept requests from anywhere (backend)
 app.use(cors())
 // json-parser to get easy access to request.body
