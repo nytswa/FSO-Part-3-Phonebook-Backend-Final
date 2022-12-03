@@ -9,12 +9,12 @@ const connectionString = process.env.MONGODB_URI
 
 // connection mongodb - returns a promise
 mongoose.connect(connectionString)
-    .then(() => {
-        console.log('Database connected')
-    })
-    .catch(err => {
-        console.error(err)
-    })
+  .then(() => {
+    console.log('Database connected')
+  })
+  .catch(err => {
+    console.error(err)
+  })
 
 
 module.exports = mongoose
